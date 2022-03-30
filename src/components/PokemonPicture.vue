@@ -1,36 +1,59 @@
 <template>
   <div class="pokemon-container">
     <div class="card-pokemon">
-      <img class="hidden-pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg" alt="Pokemon">
-      <img class="fade-in" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg" alt="Pokemon">
+     <img
+        class="hidden-pokemon"
+        :src="imgSrc"
+        alt="Pokemon">
+
+     <img
+        v.if="showPokemon"
+        class="fade-in"
+        :src="imgSrc"
+        alt="Pokemon">
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: {
+    pokemonId: {
+      type: Number,
+      required: true
+    },
+    showPokemon: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
+  },
+  computed: {
+    imgSrc() {
+      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.pokemonId}.svg`
+    }
+  }
 }
 </script>
 
 <style scoped>
 .pokemon-container {
-    height: 200px;
+    min-height: 300px;
     width: 100%;
 
 }
 .card-pokemon{
     position: relative;
     width: 300px;
-    height: 200px;
+    height: 300px;
     margin: 0 auto;
 }
 img {
-    width: 200px;
-    margin: auto;
-    display: block;
-    position: absolute;
+    display: block; 
+    height: 270px;
     left:19%;
+    margin: auto;
+    position: absolute;
 }
 .hidden-pokemon {
     filter: brightness(0);
