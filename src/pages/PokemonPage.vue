@@ -10,6 +10,14 @@
         :pokemons="pokemonArr"
         @selection="checkAswer"
         />
+
+        <div>
+          <h2>{{ message }}</h2> 
+  
+          <button>
+            New Game
+          </button>
+        </div>
   </div>
 </template>
 
@@ -30,7 +38,9 @@ export default {
     return{
       pokemonArr: [],
       pokemon: null,
-      showPokemon: false
+      showPokemon: false,
+      showAnswer: false,
+      message: ''
     }
   },
   methods: {
@@ -42,6 +52,19 @@ export default {
     },
     checkAswer( pokemonId){
       this.showPokemon = true
+
+      if(pokemonId === this.pokemon.id){
+        this.message = `Siii!, es ${this.pokemon.name}`
+      }else{
+        this.message = `Fallaste, era ${this.pokemon.name}`
+      }
+       
+      const allLi = document.querySelectorAll('li')
+
+      allLi.forEach((li,i) => {
+        li.classList.add('blocked-li')
+        console.log(li)
+      })
     }
   },
   mounted() {
