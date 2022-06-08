@@ -11,13 +11,13 @@
         @selection="checkAswer"
         />
 
-        <div>
+        <template v-if="showAnswer">
           <h2>{{ message }}</h2> 
   
-          <button>
+          <button @click="newGame">
             New Game
           </button>
-        </div>
+        </template>
   </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
     },
     checkAswer( pokemonId){
       this.showPokemon = true
-
+      this.showAnswer = true
       if(pokemonId === this.pokemon.id){
         this.message = `Siii!, es ${this.pokemon.name}`
       }else{
@@ -65,6 +65,13 @@ export default {
         li.classList.add('blocked-li')
         console.log(li)
       })
+    },
+    newGame(){
+      this.showPokemon = false
+      this.showAnswer = false
+      this.pokemonArr = []
+      this.pokemon = null
+      this.mixPokemonArray()
     }
   },
   mounted() {
