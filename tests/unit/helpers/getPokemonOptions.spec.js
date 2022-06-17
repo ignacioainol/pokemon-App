@@ -12,6 +12,13 @@ describe('Test in getPokemonOptions Helpers', () => {
   test('should return the name of the first four pokemon', async () => {
     const pokemons = await getPokemonNames([1, 2, 3, 4])
 
+    expect(pokemons).toStrictEqual([
+      { name: 'Bulbasaur', id: 1 },
+      { name: 'Ivysaur', id: 2 },
+      { name: 'Venusaur', id: 3 },
+      { name: 'Charmander', id: 4 }
+    ])
+
     expect(pokemons[0].name).toBe('Bulbasaur')
     expect(pokemons[1].name).toBe('Ivysaur')
     expect(pokemons[2].name).toBe('Venusaur')
@@ -31,7 +38,16 @@ describe('Test in getPokemonOptions Helpers', () => {
   })
 
   test('getPokemonOptions should return an mixed array', async () => {
+    const pokemons = await getPokemonOptions()
 
+    expect(pokemons.length).toBe(4)
+
+    expect(pokemons).toEqual([
+      { name: expect.any(String), id: expect.any(Number) },
+      { name: expect.any(String), id: expect.any(Number) },
+      { name: expect.any(String), id: expect.any(Number) },
+      { name: expect.any(String), id: expect.any(Number) }
+    ])
   })
 })
 
