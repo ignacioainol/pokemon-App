@@ -9,6 +9,16 @@ describe('Test in getPokemonOptions Helpers', () => {
     expect(pokemons[649]).toBe(650)
   })
 
+  test('should return the name of the first four pokemon', async () => {
+    const pokemons = await getPokemonNames([1, 2, 3, 4])
+
+    expect(pokemons[0].name).toBe('Bulbasaur')
+    expect(pokemons[1].name).toBe('Ivysaur')
+    expect(pokemons[2].name).toBe('Venusaur')
+    expect(pokemons[3].name).toBe('Charmander')
+
+  })
+
   test('should return an array of 4 elements with pokemon\'s names', async () => {
     const mixedPokemons = getPokemons()
       .sort(() => Math.random() - 0.5)
