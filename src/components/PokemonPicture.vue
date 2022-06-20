@@ -9,7 +9,6 @@
 
      <img
         v-else
-        v.if="showPokemon"
         class="fade-in"
         :src="imgSrc"
         alt="Pokemon">
@@ -55,7 +54,6 @@ img {
     height: 270px;
     left:19%;
     margin: auto;
-    position: absolute;
 }
 .hidden-pokemon {
     filter: brightness(0);
