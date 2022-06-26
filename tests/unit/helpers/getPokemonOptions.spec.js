@@ -1,4 +1,5 @@
 import getPokemonOptions, { getPokemons, getPokemonNames } from '@/helpers/getPokemonOptions'
+import { pokemons as pokemonsMock } from '../mocks/pokemons.mock'
 
 describe('Test in getPokemonOptions Helpers', () => {
   test('Debe regresar un arreglo de numeros', () => {
@@ -12,12 +13,7 @@ describe('Test in getPokemonOptions Helpers', () => {
   test('should return the name of the first four pokemon', async () => {
     const pokemons = await getPokemonNames([1, 2, 3, 4])
 
-    expect(pokemons).toStrictEqual([
-      { name: 'Bulbasaur', id: 1 },
-      { name: 'Ivysaur', id: 2 },
-      { name: 'Venusaur', id: 3 },
-      { name: 'Charmander', id: 4 }
-    ])
+    expect(pokemons).toStrictEqual(pokemonsMock)
 
     expect(pokemons[0].name).toBe('Bulbasaur')
     expect(pokemons[1].name).toBe('Ivysaur')
