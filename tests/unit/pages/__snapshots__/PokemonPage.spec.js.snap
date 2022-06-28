@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PokemonPage Component Test Debe de mostrar los componentes de PokemonPicture y PokemonOptions 1`] = `
+<div>
+  <h1>Quien es este Pokemon?</h1>
+  <pokemon-picture-stub pokemonid="4" showpokemon="false"></pokemon-picture-stub>
+  <pokemon-options-stub pokemons="[object Object],[object Object],[object Object],[object Object]"></pokemon-options-stub>
+  <!--v-if-->
+</div>
+`;
+
 exports[`PokemonPage Component Test debe de hacer match con el snapshot cuando cargan los pokemons 1`] = `
 <div>
   <h1>Quien es este Pokemon?</h1>
