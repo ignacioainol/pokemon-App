@@ -8,7 +8,7 @@
         :showPokemon="showPokemon"/>
     <PokemonOptions 
         :pokemons="pokemonArr"
-        @selection="checkAswer"
+        @selection="checkAnswer"
         />
 
         <template v-if="showAnswer">
@@ -50,7 +50,7 @@ export default {
       this.pokemon = this.pokemonArr[randInt]
       console.log(this.pokemon) 
     },
-    checkAswer( pokemonId){
+    checkAnswer( pokemonId){
       this.showPokemon = true
       this.showAnswer = true
       if(pokemonId === this.pokemon.id){
